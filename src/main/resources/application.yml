@@ -1,0 +1,23 @@
+server:
+  port: 9700
+  servlet:
+    context-path: /original
+
+spring:
+  application:
+    name: original-admin
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/bubble_admin?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8&tinyInt1isBit=false
+
+bubble:
+  fireworks:
+    swagger:
+      enabled: true
