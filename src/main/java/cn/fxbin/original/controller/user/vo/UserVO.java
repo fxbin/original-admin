@@ -1,4 +1,4 @@
-package cn.fxbin.original.controller.user;
+package cn.fxbin.original.controller.user.vo;
 
 import lombok.Data;
 

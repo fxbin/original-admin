@@ -1,6 +1,5 @@
 package cn.fxbin.original.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,13 +7,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
  * @author fxbin
  * @version 1.0v
- * @since 2020/09/18 18:23 
+ * @since 2020/09/21 11:31 
  */
 @Data
 @Builder
@@ -22,7 +20,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class SysDict implements Serializable {
 
-	private static final long serialVersionUID =  4906922673460941992L;
+	private static final long serialVersionUID =  6294795901794517439L;
 
 	/**
 	 * 编号
@@ -53,7 +51,7 @@ public class SysDict implements Serializable {
 	/**
 	 * 排序（升序）
 	 */
-	private BigDecimal sort;
+	private Integer sort;
 
 	/**
 	 * 备注信息
@@ -68,7 +66,7 @@ public class SysDict implements Serializable {
 	/**
 	 * 创建人
 	 */
-	private String createBy;
+	private Integer createBy;
 
 	/**
 	 * 创建时间
@@ -78,7 +76,7 @@ public class SysDict implements Serializable {
 	/**
 	 * 更新人
 	 */
-	private String updateBy;
+	private Integer updateBy;
 
 	/**
 	 * 更新时间

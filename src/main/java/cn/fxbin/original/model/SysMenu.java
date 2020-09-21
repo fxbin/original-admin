@@ -1,6 +1,5 @@
 package cn.fxbin.original.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
 /**
  * @author fxbin
  * @version 1.0v
- * @since 2020/09/18 18:23 
+ * @since 2020/09/21 11:31 
  */
 @Data
 @Builder
@@ -21,7 +20,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class SysMenu implements Serializable {
 
-	private static final long serialVersionUID =  2533286708082599463L;
+	private static final long serialVersionUID =  4013004203516654906L;
 
 	/**
 	 * 编号
@@ -72,7 +71,7 @@ public class SysMenu implements Serializable {
 	/**
 	 * 创建人
 	 */
-	private String createBy;
+	private Integer createBy;
 
 	/**
 	 * 创建时间
@@ -82,7 +81,7 @@ public class SysMenu implements Serializable {
 	/**
 	 * 更新人
 	 */
-	private String updateBy;
+	private Integer updateBy;
 
 	/**
 	 * 更新时间

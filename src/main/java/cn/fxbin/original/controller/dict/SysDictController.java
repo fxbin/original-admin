@@ -4,6 +4,7 @@ import cn.fxbin.bubble.fireworks.core.model.Result;
 import cn.fxbin.bubble.fireworks.web.support.BaseController;
 import cn.fxbin.original.model.SysDict;
 import cn.fxbin.original.service.SysDictService;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -16,6 +17,7 @@ import java.util.List;
  * @version v1.0
  * @since 2020/9/18 19:08
  */
+@Api(tags = "字典管理")
 @RestController
 @RequestMapping("dict")
 public class SysDictController extends BaseController {
