@@ -19,7 +19,11 @@ import java.util.List;
 public interface SysDeptMapper extends BaseMapper<SysDept> {
 
     default List<SysDept> findAll() {
-        return selectList(new QueryWrapper<SysDept>().lambda().eq(SysDept::getDelFlag, DelFlag.N.getValue()));
+        return selectList(new QueryWrapper<SysDept>()
+                .lambda()
+                .eq(SysDept::getDelFlag, DelFlag.N.getValue())
+                .orderByAsc(SysDept::getOrderNum)
+        );
     }
 
 }

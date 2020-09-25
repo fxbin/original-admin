@@ -17,6 +17,7 @@ import cn.fxbin.original.model.SysUserRole;
 import cn.fxbin.original.service.SysUserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -32,10 +33,7 @@ import java.util.stream.Collectors;
  * @since 2020/9/18 19:06
  */
 @Service
-public class SysUserServiceImpl implements SysUserService {
-
-    @Resource
-    private SysUserMapper userMapper;
+public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
     @Resource
     private SysUserRoleMapper userRoleMapper;
@@ -53,7 +51,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public Integer save(UserCreateDTO createDTO) {
         SysUser user = UserConvert.INSTANCE.convert(createDTO);
-        return userMapper.insert(user);
+        return this.baseMapper.insert(user);
     }
 
     /**
@@ -73,7 +71,7 @@ public class SysUserServiceImpl implements SysUserService {
                 .likeIfPresent(SysUser::getName, userPageDTO.getName())
                 .eqIfPresent(SysUser::getDeptId, userPageDTO.getDeptId());
 
-        Page<SysUser> sysUserPage = userMapper.selectPage(
+        Page<SysUser> sysUserPage = this.baseMapper.selectPage(
                 new Page<>(userPageDTO.getPageNo(), userPageDTO.getPageSize()),
                 userQueryWrapper);
 
@@ -93,7 +91,7 @@ public class SysUserServiceImpl implements SysUserService {
      */
     @Override
     public UserVO findByUsername(String username) {
-        return UserConvert.INSTANCE.convert(userMapper.findByUsername(username));
+        return UserConvert.INSTANCE.convert(this.baseMapper.findByUsername(username));
     }
 
     /**

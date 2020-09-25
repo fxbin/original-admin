@@ -6,6 +6,8 @@ import cn.fxbin.original.model.SysDept;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 /**
  * DeptConvert
  *
@@ -21,5 +23,7 @@ public interface DeptConvert {
     SysDept convert(DeptCreateDTO bean);
 
     DeptVO convert(SysDept bean);
+
+    List<DeptVO> convert(List<SysDept> list);
 
 }

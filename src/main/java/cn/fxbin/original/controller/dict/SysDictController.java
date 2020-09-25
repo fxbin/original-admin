@@ -2,9 +2,12 @@ package cn.fxbin.original.controller.dict;
 
 import cn.fxbin.bubble.fireworks.core.model.Result;
 import cn.fxbin.bubble.fireworks.web.support.BaseController;
+import cn.fxbin.original.controller.dict.dto.DictCreateDTO;
+import cn.fxbin.original.controller.dict.vo.DictVO;
 import cn.fxbin.original.model.SysDict;
 import cn.fxbin.original.service.SysDictService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,19 +28,17 @@ public class SysDictController extends BaseController {
     @Resource
     private SysDictService sysDictService;
 
-    @PostMapping(value = "/save")
-    public Result<Boolean> save(@RequestBody SysDict record) {
-        return success(sysDictService.save(record));
+    @ApiOperation(value = "保存字典")
+    @PostMapping("/save")
+    public Result<Integer> save(@RequestBody DictCreateDTO createDTO) {
+        return success(sysDictService.save(createDTO));
     }
 
-    @DeleteMapping(value = "delete")
-    public Result<Boolean> delete(List<Integer> idList) {
-        return success(sysDictService.removeByIds(idList));
-    }
 
-    @GetMapping(value = "/findByLable")
-    public Result findByLable(@RequestParam String lable) {
-        return success(sysDictService.findByLable(lable));
+    @ApiOperation(value = "根据标签查询")
+    @GetMapping("/findByLable")
+    public Result<List<DictVO>> findByLabel(@RequestParam String label) {
+        return success(sysDictService.findByLabel(label));
     }
 
 }

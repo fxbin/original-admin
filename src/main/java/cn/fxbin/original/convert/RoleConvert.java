@@ -1,5 +1,6 @@
 package cn.fxbin.original.convert;
 
+import cn.fxbin.original.controller.user.dto.RoleCreateDTO;
 import cn.fxbin.original.controller.user.vo.RoleVO;
 import cn.fxbin.original.model.SysRole;
 import org.mapstruct.Mapper;
@@ -26,6 +27,8 @@ public interface RoleConvert {
             @Mapping(source = "name", target = "roleName")
     })
     RoleVO convert(SysRole bean);
+
+    SysRole convert(RoleCreateDTO bean);
 
     List<RoleVO> convert(List<SysRole> list);
 

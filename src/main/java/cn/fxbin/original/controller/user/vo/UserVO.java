@@ -1,6 +1,9 @@
 package cn.fxbin.original.controller.user.vo;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * UserVO
@@ -9,8 +12,9 @@ import lombok.Data;
  * @version v1.0
  * @since 2020/9/19 15:16
  */
+@ApiModel(value = "用户 VO")
 @Data
-public class UserVO {
+public class UserVO implements Serializable {
 
     /**
      * 编号

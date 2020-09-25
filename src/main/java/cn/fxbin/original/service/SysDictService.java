@@ -1,5 +1,7 @@
 package cn.fxbin.original.service;
 
+import cn.fxbin.original.controller.dict.dto.DictCreateDTO;
+import cn.fxbin.original.controller.dict.vo.DictVO;
 import cn.fxbin.original.model.SysDict;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -12,15 +14,24 @@ import java.util.List;
  * @version v1.0
  * @since 2020/9/18 18:55
  */
-public interface SysDictService extends IService<SysDict> {
+public interface SysDictService {
 
     /**
-     * findByLable
+     * save
+     *
+     * @since 2020/9/23 11:27
+     * @param createDTO cn.fxbin.original.controller.dict.dto.DictCreateDTO
+     * @return java.lang.Integer
+     */
+    Integer save(DictCreateDTO createDTO);
+
+    /**
+     * findByLabel
      *
      * @since 2020/9/18 19:32
-     * @param lable 根据名称查询
-     * @return java.util.List<cn.fxbin.original.model.SysDict>
+     * @param label 根据名称查询
+     * @return java.util.List<cn.fxbin.original.controller.dict.vo.DictVO>
      */
-    List<SysDict> findByLable(String lable);
+    List<DictVO> findByLabel(String label);
 
 }

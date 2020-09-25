@@ -3,6 +3,8 @@ package cn.fxbin.original.common.dto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
+
 /**
  * BaseDTO
  *
@@ -11,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @since 2020/9/21 18:40
  */
 @ApiModel("Base DTO")
-public class BaseDTO {
+public class BaseDTO implements Serializable {
 
     @ApiModelProperty(value = "创建人", required = true)
     private Integer createBy;
