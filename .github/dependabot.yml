@@ -1,0 +1,12 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: cn.fxbin.bubble:bubble-fireworks-parent
+    versions:
+    - 0.0.9-RELEASE
+    - 1.0.0-RELEASE
